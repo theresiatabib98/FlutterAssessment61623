@@ -13,7 +13,6 @@ class WeatherOverviewScreen extends StatefulWidget {
 class _WeatherOverviewScreenState extends State<WeatherOverviewScreen>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   // void initState() {
   //   super.initState();
@@ -55,7 +54,6 @@ class _WeatherOverviewScreenState extends State<WeatherOverviewScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _scaffoldKey,
       appBar: AppBar(
         title: Text('Weather App'),
         bottom: TabBar(
@@ -76,7 +74,6 @@ class _WeatherOverviewScreenState extends State<WeatherOverviewScreen>
         },
         child: TabBarView(
           controller: _tabController,
-          physics: NeverScrollableScrollPhysics(), // Disable scrolling
           children: [
             DailyWeather(),
             UpcomingWeather(),
